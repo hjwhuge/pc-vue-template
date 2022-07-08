@@ -3,7 +3,9 @@ const name = $ref('');
 
 const router = useRouter();
 const go = () => {
-  if (name) router.push('/about');
+  if (name) {
+    return router.push('/about');
+  }
 };
 </script>
 
