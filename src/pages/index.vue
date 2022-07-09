@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import request from '~/utils/request'
 import { getImgData } from '~/api/test'
 const getImg = () => {
   getImgData(4).then((res) => {
+    console.log(res.data)
+  })
+}
+const getMock = () => {
+  const obj = {
+    // 请求地址
+    url: '/api/get',
+  }
+  request(obj).then((res) => {
     console.log(res.data)
   })
 }
@@ -47,6 +57,9 @@ const go = () => {
     </div>
     <div>
       <button class="m-3 text-sm btn" @click="getImg">获取图片</button>
+    </div>
+    <div>
+      <button class="m-3 text-sm btn" @click="getMock">获取mock 数据</button>
     </div>
   </div>
 </template>
