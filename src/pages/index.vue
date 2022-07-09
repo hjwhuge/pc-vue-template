@@ -1,12 +1,18 @@
 <script setup lang="ts">
-const name = $ref('');
+import { getImgData } from '~/api/test'
+const getImg = () => {
+  getImgData(4).then((res) => {
+    console.log(res.data)
+  })
+}
+const name = $ref('')
 
-const router = useRouter();
+const router = useRouter()
 const go = () => {
   if (name) {
-    return router.push('/about');
+    return router.push('/about')
   }
-};
+}
 </script>
 
 <template>
@@ -38,6 +44,9 @@ const go = () => {
 
     <div>
       <button class="m-3 text-sm btn" :disabled="!name" @click="go">Go</button>
+    </div>
+    <div>
+      <button class="m-3 text-sm btn" @click="getImg">获取图片</button>
     </div>
   </div>
 </template>
